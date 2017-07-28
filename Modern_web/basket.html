@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Obaju e-commerce template">
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="keywords" content="">
+
+    <title>
+        Favourite List-Drug Learning Center
+    </title>
+
+    <meta name="keywords" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- styles -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <script src="js/respond.min.js"></script>
+
+    <link rel="shortcut icon" href="favicon.png">
+
+
+
+</head>
+	
+	  <script>
+											function addFav(){
+    $.ajax({
+      url: "http://mongodb-kittyshanshan3119624.codeanyapp.com:3008/basket.html",
+      data: {"id": articleID},
+      success: function(){
+           $('a#fav')
+                 .addClass('active')
+                 .attr('title','[-] Remove from favorites')
+                 .unbind('click')
+                 .bind('click', removeFav)
+           ;
+      }
+    });
+}
+
+function removeFav(){
+    $.ajax({
+      url: "http://mongodb-kittyshanshan3119624.codeanyapp.com:3008/basket.html",
+      data: {"id": articleID},
+      success: function(){
+            $('a#fav')
+                 .removeClass('active')
+                 .attr('title','[+] Add as favorite')
+                 .unbind('click')
+                 .bind('click', addFav)
+            ;
+      }
+    });
+}
+
+//this will make the link listen to function addFav (you might know this already)
+$('#fav').bind('click', addFav);
+</script> 
+	
+	
+	
+	
+
+<body>
+    <!-- *** TOPBAR ***
+ _________________________________________________________ -->
+    <div id="top">
+        <div class="container">
+            
+            <div class="col-md-6" data-animate="fadeInDown">
+                <ul class="menu">
+                      <li><a href="loginalex.html">Login/Register</a>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="Login">Customer login</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="customer-orders.html" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="email-modal" placeholder="email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password-modal" placeholder="password">
+                            </div>
+
+                            <p class="text-center">
+                                <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                            </p>
+
+                        </form>
+
+                        <p class="text-center text-muted">Not registered yet?</p>
+                        <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- *** TOP BAR END *** -->
+
+    <!-- *** NAVBAR ***
+ _________________________________________________________ -->
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+
+               <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
+                    <img src="img/logo_drug.png" alt="Obaju logo" class="hidden-xs">
+                    <img src="img/logo_drug.png" alt="Obaju logo" class="visible-xs"><span class="sr-only"></span>
+                </a>
+                <div class="navbar-buttons">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">My Favourite List</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    
+									 	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Search</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                  
+                    <a class="btn btn-default navbar-toggle" href="basket.html">
+                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">Search</span>
+                    </a>
+        				 
+  </div>
+            </div>
+            <!--/.navbar-header -->
+
+            <div class="navbar-collapse collapse" id="navigation">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="index.html">Home</a>
+                    </li>
+                    <li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Drug <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                       <div class="col-sm-3">
+                                            <h5>Type of drug</h5>
+                                            <ul>
+                                                <li><a href="cannabis.html">Cannabis</a>
+                                                </li>
+                                                <li><a href="cocaine.html">Cocaine</a>
+                                                </li>
+                                                <li><a href="comingsoon.html">Ecstasy</a>
+                                                </li>
+                                                <li><a href="comingsoon.html">Amphetamines</a>
+                                                </li>
+																							<li><a href="comingsoon.html">Methadone</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                           <h5>Materials-flyer</h5>
+                                            <ul>
+                                                <li><a href="poster.html">About Cannabis</a>
+                                                </li>
+                                                <li><a href="poster.html">About Cocaine</a>
+                                                </li>
+                                                <li><a href="comingsoon.html">About Ecstasy</a>
+                                                </li>
+                                                <li><a href="comingsoon.html">About Amphetamines</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            
+                                        </div>
+                                        <div class="col-sm-3">
+                                             <div class="banner">
+                                                <a href="#">
+                                                    <img src="img/banner.jpg" class="img img-responsive" alt="">
+                                                </a>
+                                        </div>
+																					<div class="banner">
+                                                <a href="#">
+                                                    <img src="img/cocaine.jpg" class="img img-responsive" alt="">
+                                                </a>
+																					</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Help and Support <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                           <h5>Methadone Clinic</h5>
+                                            <ul>
+                                                <li><a href="category_hk.html">Hong Kong Island</a>
+                                                </li>
+                                                <li><a href="category_kn.html">Kowloon</a>
+                                                </li>
+                                                <li><a href="category_nt.html">New Territories</a>
+                                                </li>
+																						
+                                               
+                                            </ul>
+																					 <h5>News and Features</h5>
+                                            <ul>
+                                                <li><a href="index.html">Youtube</a>
+                                                </li>
+                                                <li><a href="index.html">theguardian news</a>
+                                                </li>
+                                                <li><a href="index.html">Mini Game</a>
+                                                </li>
+																							
+                                                
+                                  </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                           
+                                          
+																					 <h5>User</h5>
+                                            <ul>
+                                                <li><a href="register.html">Register / login</a>
+                                                </li>
+                                                <li><a href="customer-orders.html">Favourite List</a>
+                                                </li>
+																							  <li><a href="404.html">404 page</a>
+                                                </li>
+                                                <li><a href="contact.html">Contact</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                     
+                                        <div class="col-sm-3">
+                                           
+                                          
+                                        </div>
+                                        <div class="col-sm-3">
+                                           <div class="banner">
+                                                <a href="#">
+                                                    <img src="img/cocaine.jpg" class="img img-responsive" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="banner">
+                                                <a href="#">
+                                                    <img src="img/pills.jpg" class="img img-responsive" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+			
+			
+			<li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"> Mini Games Zone <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h5>Mini Games</h5>
+                                            <ul>
+                                                <li><a href="game.html">Sara's Quest</a>
+                                                </li>
+                                                <li><a href="game.html">Drug Abuse Game</a>
+                                                </li>
+                                                <li><a href="game.html">Pick a card</a>
+                                                </li>
+																							<li><a href="game.html">Dr. NIDA'S Challenge</a>
+                                                </li>
+																							
+																							
+                                                
+                                            </ul>
+																					
+																					 
+                                        </div>
+                                        <div class="col-sm-3">
+                                          
+																					
+                                        </div>
+                                        
+																			
+																	<div class="col-sm-3">
+                                            <div class="banner">
+                                                <a href="#">
+                                                    <img src="img/cocaine.jpg" class="img img-responsive" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="banner">
+                                                <a href="#">
+                                                    <img src="img/pills.jpg" class="img img-responsive" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+									
+						
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+
+            <div class="navbar-buttons">
+
+                <div class="navbar-collapse collapse right" id="basket-overview">
+                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">My Favourite List</span></a>
+                </div>
+                <!--/.nav-collapse -->
+
+                <div class="navbar-collapse collapse right" id="search-not-mobile">
+                    <div class="navbar-collapse collapse right" id="basket-overview">
+                    <a href="search2.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">Search</span></a>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+			<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+
+		    </span>
+                    </div>
+                </form>
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#navbar -->
+
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+
+        <div id="content">
+            <div class="container">
+
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a>
+                        </li>
+                        <li>Favourite List</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-12" id="basket">
+
+                    <div class="box">
+
+                        <form method="post" action="checkout1.html">
+
+                            <h1>Favourite List</h1>
+													
+													
+															
+
+</script>
+													
+													
+													
+													
+		
+					
+													
+                            <p class="text-muted">Feel free to add anything in your favourite list</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Product</th>
+                                            
+                                         <th>Unit </th>
+                                          
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    <img src="img/cannabis1.jpg" alt="cannabis">
+                                                </a>
+                                            </td>
+                                            <td><a href="#" onclick="addfav('White Blouse Armani')">Cannabis</a>
+                                            </td>
+                                            <td>
+                                                <input type="number" value="1" class="form-control">
+                                            </td>
+                                           
+                                            <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    <img src="img/cocaine1.jpg" alt="cocainel">
+                                                </a>
+                                            </td>
+                                            <td><a href="#">Cocaine</a>
+                                            </td>
+                                            <td>
+                                                <input type="number" value="1" class="form-control">
+                                            </td>
+                                            <
+                                            <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                       
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                            <!-- /.table-responsive -->
+
+                            <div class="box-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default" id="fav" class="active" title="[-] Remove as favorite"><i class="fa fa-chevron-left"></i> Remove Item</a>
+                                </div>
+                                <div class="pull-right">
+                                    <button class="btn btn-default" id="fav" title="[+] Add as favorite"><i class="fa fa-refresh"></i> Update Favourite List</button>
+               
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <!-- /.box -->
+
+
+                    <div class="row same-height-row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="box same-height">
+                                <h3>You may also like these post</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6">
+                            <div class="product same-height">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="cannabis.html">
+                                                <img src="img/cannabis2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="cannabis.html">
+                                                <img src="img/cannabis2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/cannabis2.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3>Cannabis</h3>
+                                   
+                                </div>
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                        <div class="col-md-3 col-sm-6">
+                            <div class="product same-height">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="cocaine.html">
+                                                <img src="img/cocaine1.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="cocaine.html">
+                                                <img src="img/cocaine1.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="cocaine.html" class="invisible">
+                                    <img src="img/cocaine1.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3>Cocaine</h3>
+                                    
+                                </div>
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+
+                        <div class="col-md-3 col-sm-6">
+                            <div class="product same-height">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="category_hk.html">
+                                                <img src="img/Clinic1.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="category_hk.html">
+                                                <img src="img/Clinic1.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/Clinic1.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3>Hong Kong Clinic Location</h3>
+                                   
+
+                                </div>
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- /.col-md-9 -->
+
+               
+                </div>
+                <!-- /.col-md-3 -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+			
+			
+                        
+			
+			
+			
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+<h2>Notes</h2>
+
+<form ng-submit="todoAdd()">
+    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+    <input type="submit" value="Add New">
+</form>
+
+<br>
+
+<div ng-repeat="x in todoList">
+    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+</div>
+
+<p><button ng-click="remove()">Remove marked</button></p>
+
+
+<script>
+var app = angular.module('myApp', []); 
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'Read Cocaine Post', done:false}];
+
+    $scope.todoAdd = function() {
+        $scope.todoList.push({todoText:$scope.todoInput, done:false});
+        $scope.todoInput = "";
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+        });
+    };
+});
+</script>
+	
+	
+	
+	  <script>
+    
+  $('#btn btn-primary navbar-btn').click(function(){
+    currentAddFav();
+});
+
+function currentAddFav(){
+    if(localStorage.getItem('favourites')){//If there are favourites
+        var storage = JSON.parse(localStorage['favourites']);
+        if (storage.indexOf(currentGame.id) == -1) { 
+  # not found
+  storage.push(currentGame.id);
+  localStorage.setItem('favourites', JSON.stringify(storage));
+} else {
+  # found
+  console.log('item already in favorites')
+}
+            }
+            else{//game id doesn't exist in storage so add the id to storage
+                storage.push(currentGame.id);
+                localStorage.setItem('favourites', JSON.stringify(storage));
+                console.log('must be a new id?');
+            }
+        }
+    }else{//No favourites in local storage, so add new
+        var favArray= [];
+        favArray.push(currentGame.id);
+        localStorage.setItem("favourites", JSON.stringify(favArray));
+        console.log('New favourites list');
+    }
+
+}
+  
+    
+  </script>
+												
+        <!-- *** FOOTER ***
+ _________________________________________________________ -->
+         <div id="footer" data-animate="fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                         <h4>Pages</h4>
+
+                        <ul>
+                            <li><a href="register.html">Register / login</a>
+                            </li>
+                            <li><a href="basket.html">Favourite List</a>
+                            </li>
+                            <li><a href="contact.html">Contact us</a>
+                            </li>
+                      
+                        </ul>
+                        <hr>
+
+                        <hr class="hidden-md hidden-lg hidden-sm">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>Top categories</h4>
+
+                        <h5>Type of drugs</h5>
+
+                        <ul>
+                            <li><a href="cannabis.html">Cannabis</a>
+                            </li>
+                            <li><a href="cocaine.html">Cocaine</a>
+                            </li>
+                            <li><a href="comingsoon.html">Ecstas</a>
+                            </li>
+													 <li><a href="comingsoon.html">Amphetamines</a>
+                                                </li>
+                        </ul>
+
+                        <h5>Methadone Clinic</h5>
+                        <ul>
+                            <li><a href="category_hk">Hong Kong Island</a>
+                            </li>
+                            <li><a href="category_kn">Kowloon</a>
+                            </li>
+                            <li><a href="category_nt.html">New Territories</a>
+                            </li>
+                            
+                        </ul>
+                        <hr class="hidden-md hidden-lg">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>Where to find us</h4>
+
+                        <p><strong>Drug Learning Center Ltd</strong>
+                            <br>9/F VTC Tower,
+                            <br>27 Wood Road,
+                            <br>Wan Chai
+                            
+                            <br>
+                            <strong>Hong Kong</strong>
+                        </p>
+
+                        <a href="contact.html">Go to contact page</a>
+
+                        <hr class="hidden-md hidden-lg">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <hr>
+
+                        <h4>Stay in touch</h4>
+
+                       
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+
+        <!-- *** FOOTER END *** -->
+
+
+
+
+        <!-- *** COPYRIGHT ***
+ _________________________________________________________ -->
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">© 2017 Drug Learning Center</p>
+
+                </div>
+               
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+    </div>
+    <!-- /#all -->
+
+
+    
+
+    <!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/bootstrap-hover-dropdown.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/front.js"></script>
+
+<script>
+    
+ // $('#btn btn-primary navbar-btn').click(function(){
+	$('.btn btn-default').click(function(){
+		alert("DD");
+    currentAddFav();
+});
+
+function currentAddFav(){
+	alert("DD");
+ 
+}
+  
+    
+  </script>
+
+</body>
+
+</html>
